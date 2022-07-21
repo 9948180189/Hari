@@ -1,0 +1,93 @@
+
+Environment Variables::
+=======================
+echo $"export PATH=\$PATH:$(pwd)" >> ~/.bash_profile
+source ~/.bash_profile
+============================================
+AKIAROEV5MDSINNR3HJW
+O5Y10pW8oArC3YSkXJO1jmy5o5cHfmgvnzrOsbIL
+
+AKIAROEV5MDSAH5HKUFX
+iNgEeg/Isvhd75LXMfJnCwH043MKWUTQx8C2Rd/r
+===========================================
+
+EC2:
+========
+provider "aws" {
+  access_key = "AKIAROEV5MDSAH5HKUFX"
+  secret_key = "iNgEeg/Isvhd75LXMfJnCwH043MKWUTQx8C2Rd/r"
+  region     = "us-east-2"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0d718c3d715cec4a7"
+  instance_type = "t2.micro"
+   tags = {
+    Name        = "Test-Server"
+    Environment = "test"
+  }
+}
+
+====================================================================
+provider "aws" {
+  access_key = "AKIAZPCBWUKXGA66U2H3"
+  secret_key = "s+juh3iksFCkYxhvbRsd2VJM2taXbAusDgiFn5M6"
+  region     = "us-east-2"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0fc20dd1da406780b"
+  instance_type = "t2.micro"
+}
+
+S3:
+==========================================================
+provider "aws" {
+  access_key = "AKIAROEV5MDSAH5HKUFX"
+  secret_key = "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"
+  region     = "us-east-2"
+}
+resource "aws_s3_bucket" "bucket" {
+  bucket = "devopsbatch44"
+  acl    = "private"
+
+  tags = {
+    Name        = "devopsbatch44"
+    Environment = "test"
+  }
+}
+
+
+
+
+VPC:
+========================================================
+provider "aws" {
+  access_key = "AKIAROEV5MDSAH5HKUFX"
+  secret_key = "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"
+  region     = "us-east-2"
+}
+resource "aws_vpc" "MYVPC" {
+  cidr_block       = "10.0.0.0/16"
+  instance_tenancy = "dedicated"
+
+  tags = {
+    Name = "MYVPC"
+  }
+}
+
+====================================
+EC2:
+========
+provider "aws" {
+  access_key = "AKIA4HY2XYMTTKYS7LXB"
+  secret_key = "cP3a0LaAHLjADcyuTs3s5J/MX3ih9G/ra7o9ION+"
+  region     = "us-east-2"
+}
+
+resource "aws_instance" "example" {
+  count = 2
+  ami           = "ami-023b120e01f4779c1"
+  instance_type = "t2.micro"
+}
+==============================================================
