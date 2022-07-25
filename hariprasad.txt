@@ -1,0 +1,2 @@
+hai this my personal file
+x=10
